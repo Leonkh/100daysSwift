@@ -8,7 +8,9 @@ let differenc = firstScore - secondScore //вычитание ёпт
 let product = firstScore * secondScore // умножение ёпт
 let divided = firstScore / secondScore // целочисленное деление так то
 let remainder = 13 % secondScore // нахождение остатка от деления
-
+var x: Int = 15
+var y: Int = 4
+let res = x / y
 let fakers = "Fakers gonna "
 let fake = fakers + "fake!" // можем суммировать ОДНОТИПНЫЕ данные между собой
 
@@ -21,18 +23,23 @@ firstScore != secondScore // оператор отрицания равенст�
 firstScore > secondScore
 firstScore <= secondScore
 
-"Alex" <= "Igor" // сравнение строковых данных идёт по порядку букв в алфавите
+"Alexфx" <= "Igor" // сравнение строковых данных идёт по порядку букв в алфавите
 "А" > "Б"
 
-//let firstCard = 11
-//let secondCard = 11
+let firstCard = 10
+let secondCard = 11
 //
 //if firstCard + secondCard == 21 { // оператор if для условия
 //    print("BlacJack!")
 //}
-//else { // оператор else для иного варианта
+//else if { // оператор else для иного варианта
 //    print("Regular card")
 //}
+//else {
+    
+//if {
+//
+//        }
 
 //let age1 = 22
 //let age2 = 21
@@ -60,11 +67,22 @@ firstScore <= secondScore
 
 let yourScore = 83
 
-switch yourScore {
-case 0..<50:
+//switch yourScore {
+//case 0..<50:
+//    print("It's bad")
+//case 50..<85:
+//    print("You can better")
+//default:
+//    print("you win!")
+//}
+
+if yourScore >= 0 && yourScore < 50 {
     print("It's bad")
-case 50..<85:
-    print("You can better")
-default:
-    print("you win!")
 }
+else if yourScore >= 50 && yourScore < 85 {
+print("You can better")
+}
+else {
+    print("You can better")
+}
+

@@ -2,16 +2,18 @@ import UIKit
 //Протокол определяет образец методов, свойств или другие требования, которые соответствуют определенному конкретному заданию или какой-то функциональности. Протокол фактически не предоставляет реализацию для любого из этих требований, он только описывает как реализация должна выглядеть. Протокол может быть принят классом, структурой или перечислением для обеспечения фактической реализации этих требований. Любой тип, который удовлетворяет требованиям протокола, имеет указание соответствовать этому протоколу или другими словами реализовать данный протокол.
 
 protocol Identifiable { //protocol - ключевое слово для создания протокола
-    var id: String {get set} // он будет требовать чтоб все соответсвующие типы имели id в формате String, которое может быть считано (get) или записано (set)
+    var id: String {get} // он будет требовать чтоб все соответсвующие типы имели id в формате String, которое может быть считано (get) или записано (set)
 }
 
-//struct Person: Identifiable {
-//    var id: String
-//}
-//
-//func dispalyID (_ thing: Identifiable) {
-//    print("My ID is \(thing.id)")
-//}
+struct Person: Identifiable {
+    let id: String
+}
+var pp = Person(id: "11")
+pp.id
+
+func dispalyID (_ thing: Identifiable) {
+    print("My ID is \(thing.id)")
+}
 
 protocol Payable {
     func calculateWages () -> Int
@@ -77,8 +79,8 @@ protocol Check {
 class ForCheck: Check {
     var check1: Any
     
-    func check2() {
-        <#code#>
+//    func check2() {
+//        <#code#>
     }
     init (check1: Any) {
         self.check1 = check1

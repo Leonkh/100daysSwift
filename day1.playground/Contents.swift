@@ -33,3 +33,6 @@ let taylor = "swift" // let задаёт константы
 
 let albim: String = "Reputation" // можно задавать тип переменной или константы явно через :
 
+var fl: Float = 3.3432
+type(of: fl)
+var hl: CShort = 

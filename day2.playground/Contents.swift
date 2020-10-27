@@ -17,7 +17,7 @@ let colors2 = Set(["red", "green", "blue", "red", "blue"]) // Set - сеты, э
 
 var name = (first: "Taylor", last: "Swift") // tuples - кортежи - 1. Создаются фиксированного размера, 2. нельзя менять тип данных после генерации, 3. Можно получать доступ по позиции или названию
 //print(name.0)
-//print(name.first)
+print(name.first)
 
 let address = (house: 555, street: "Taylor Swift Avenue", city: "Nashville") // Если вам нужна конкретная, фиксированная коллекция связанных значений, где каждый элемент имеет точное положение или имя, вы должны использовать tuple
 
@@ -61,7 +61,7 @@ let result4 = Result.failure
 
 enum Activity {
     case bored
-    case running(destination: String)
+    case running(destdfjhsdjfhjsdfsdation: String)
     case talking(topic: String)
     case singing(volume: Int)
 } // Помимо хранения простого значения, enums могут также хранить связанные с ними значения, привязанные к каждому случаю. Это позволяет прикреплять к перечислениям дополнительную информацию, чтобы они могли представлять более подробные данные.

@@ -118,17 +118,24 @@ import UIKit
 //var shon = Person(name: "Shon")
 //print(Person.countPerson)
 
+//
+//struct Person {
+//    private var id: Int // private делает свойство читабельным только внутри struct
+//
+//    init (id:Int) {
+//        self.id = id
+//    }
+//    func myId () {
+//        print("my id is \(self.id)")
+//    }
+//}
+//
+//let alex = Person(id: 1234)
+//alex.myId()
+
 
 struct Person {
-    private var id: Int // private делает свойство читабельным только внутри struct
+    var name: String
     
-    init (id:Int) {
-        self.id = id
-    }
-    func myId () {
-        print("my id is \(self.id)")
-    }
 }
 
-let alex = Person(id: 1234)
-alex.myId()

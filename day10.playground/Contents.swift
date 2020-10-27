@@ -38,39 +38,63 @@
 //}
 //
 //let sasha = Poddle(name: "sasha")
-////sasha.makeNoise()
-//
+//sasha.makeNoise()
+
 //class Singer { // пример с Singer для 3-го различия между class и struct
 //    var name = "Taylor Swift"
 //}
 //var she = Singer()
-////print(she.name)
+//she.name
 //
+//var he = Singer()
+//he.name
+//he.name = "John"
+//he.name
+////print(she.name)
+
 //var sheCopy = she
 //sheCopy.name = "Ledy Gaga"
-////print(she.name)
+//print(she.name)
 //
 class Person {
-    var name = "Tom"
+    var name: String
+    
+    var age: Int
 
-    init() {
-        print("\(name) is alive!")
+    init(name:String) {
+        self.name = name
+        self.age = 0
+//        print("\(name) is alive!")
     }
-    func greeting() {
-        print("Hello, I'm \(name)")
+    
+    init(age:Int, name: String) {
+        self.age = age
+        self.name = "tigr"
+//        print("\(name) is alive!")
     }
-
-    deinit {
-        print("\(name) is no more!")
-    }
+//    func greeting() {
+//        print("Hello, I'm \(name)")
+//    }
+//
+//    deinit {
+//        print("\(name) is no more!")
+//    }
 }
 
-//for _ in 1...3 {
+var tigr = Person(name: "Tigr")
+print(tigr.name, tigr.age)
+
+var tigr2 = Person(age: 22, name: "tigr2")
+print(tigr2.name, tigr2.age)
+//tigr/n
+
+//for _ in 1...1 {
 //    let person = Person()
+//    let person2 = Person()
 //    person.greeting()
 //    print("HI!")
 //}
-
+//person.name
 //var petya = Person()
 //var vasya = Person()
 
@@ -90,9 +114,9 @@ class Person {
 
 //var Petya = Person(name: "Petya")
 
-struct Singer {
-    var name = "Taylor Swift"
-}
-var new = Singer()
-new.name = "Ed"
-print(new.name)
+//struct Singer {
+//    var name = "Taylor Swift"
+//}
+//var new = Singer()
+//new.name = "Ed"
+//print(new.name)
