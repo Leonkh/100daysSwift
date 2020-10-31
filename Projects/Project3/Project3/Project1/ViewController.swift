@@ -13,8 +13,7 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+
         title = "Leon's Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
 
@@ -49,13 +48,6 @@ class ViewController: UITableViewController {
             
             navigationController?.pushViewController(vc, animated: true)
         }
-    }
-    
-    @objc func shareTapped() {
-        let please = "Please, recomend this app for your friends: URL"
-        let vc = UIActivityViewController(activityItems: [please], applicationActivities: [])
-        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(vc, animated: true)
     }
 }
 
