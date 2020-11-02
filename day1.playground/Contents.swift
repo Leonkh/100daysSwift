@@ -2,7 +2,7 @@ import UIKit
 
 var str = "Hello, playground" // var задаёт переменные
 str = "Goodbye" // Swift сам может определять тип переменной
-
+//
 var age = 38 // int
 var population = 8_000_000 // int
 
@@ -35,4 +35,4 @@ let albim: String = "Reputation" // можно задавать тип пере�
 
 var fl: Float = 3.3432
 type(of: fl)
-var hl: CShort = 
+//var hl: CShort = 

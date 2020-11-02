@@ -91,4 +91,4 @@ class ForCheck: Check {
 //        return "Hi, \(check)!"
 //    }
 }
-
+//

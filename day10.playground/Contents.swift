@@ -87,7 +87,7 @@ print(tigr.name, tigr.age)
 var tigr2 = Person(age: 22, name: "tigr2")
 print(tigr2.name, tigr2.age)
 //tigr/n
-
+//
 //for _ in 1...1 {
 //    let person = Person()
 //    let person2 = Person()
