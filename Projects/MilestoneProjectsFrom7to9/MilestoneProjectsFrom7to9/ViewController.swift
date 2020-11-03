@@ -188,6 +188,7 @@ class ViewController: UIViewController {
     }
     
     func showAlert(alertTitle: String, alertMessage: String, continueAlert: String = "Продолжить") {
+        inputLetter.text?.removeAll()
         let ac = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: continueAlert, style: .default))
         present(ac, animated: true)
