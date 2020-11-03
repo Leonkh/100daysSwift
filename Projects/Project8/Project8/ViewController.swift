@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var scoreLabel: UILabel! // Label c количеством очков
     var letterButtons = [UIButton]() // массив кнопок
     
+    
     var activatedButtons = [UIButton]()
     var solutions = [String]()
     
