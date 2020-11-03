@@ -18,15 +18,27 @@ class ViewController: UITableViewController {
         title = "Leon's Viewer"
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let fm = FileManager.default
-        let path = Bundle.main.resourcePath!
-        let items = try! fm.contentsOfDirectory(atPath: path)
-
-        for item in items {
-            if item.hasSuffix("jpg") {
-                pictures.append(item)
+        DispatchQueue.global(qos: .background).async { [weak self] in // Challenge 1 из проекта 9
+            let fm = FileManager.default
+            let path = Bundle.main.resourcePath!
+            let items = try! fm.contentsOfDirectory(atPath: path)
+            
+            for item in items {
+                if item.hasSuffix("jpg") {
+                    self?.pictures.append(item)
+                }
+                self?.pictures.sort()
             }
-            pictures.sort()
+            self?.reloadData()
+        }
+
+
+
+    }
+    
+    func reloadData() { // Challenge 1 из проекта 9
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
         }
     }
 

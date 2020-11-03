@@ -60,13 +60,19 @@ class ViewController: UITableViewController {
     }
     
     func submitToArray(filter: String) { // Challenge 2
-        
-        for newElement in petitions {
-            if newElement.body.contains(filter) || newElement.title.contains(filter) {
-                filteredPetitions.append(newElement)
+        DispatchQueue.global(qos: .background).async { [weak self] in // Challenge 3 from project9
+            for newElement in (self?.petitions)! {
+                if newElement.body.contains(filter) || newElement.title.contains(filter) {
+                    self?.filteredPetitions.append(newElement)
+                }
             }
+            DispatchQueue.main.async { [weak self] in // Challenge 3 from project9
+                self?.tableView.reloadData()
+            }
+
         }
-        tableView.reloadData()
+        
+
 //        filteredPetitions.removeAll()
     }
     
