@@ -12,9 +12,21 @@ class ViewController: UITableViewController {
     var allWords = [String]()
     var usedWords = [String]()
     
+    var savedData = [SavedData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let defaults = UserDefaults.standard
+        if let dataToLoad = defaults.object(forKey: "savedData") as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                savedData = try jsonDecoder.decode([SavedData].self, from: dataToLoad)
+            } catch {
+                print("Failed to load")
+            }
+        }
+            
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(promtForAnswer)) // создаем кнопку, которая будет .add, что означает что она будет стандартным для iOS плюсиком и вызывает функцию promtForAnswer
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(startGame)) // Challenge 3
@@ -32,9 +44,18 @@ class ViewController: UITableViewController {
         startGame()
     }
         @objc func startGame() {
+            if savedData.isEmpty { // Challenge 3 from Project 12
             title = allWords.randomElement() // выбираем случайное слово из массива как title
+            
             usedWords.removeAll(keepingCapacity: true) // чистим массив слов введенных пользователем после предыдущей игры
+            let savedWords = SavedData(currentWord: title!, inputedWords: usedWords)
+            savedData.append(savedWords)
+            save()
             tableView.reloadData() // перезагружаем все данные (ячейки) в таблице, игра начинается заново так что убираем всё после предыдушей игры
+            } else {
+                title = savedData.last?.currentWord
+                usedWords = savedData.last!.inputedWords
+            }
         }
         
 
@@ -76,6 +97,9 @@ class ViewController: UITableViewController {
             if isOriginal(word: lowerAnswer) { // проверка на оригинальность (не было до)
                 if isRealWord(word: lowerAnswer) { // проверка что это реально существующее слово
                     usedWords.insert(answer, at: 0) // добавляем слово в 0-ую позицию в массиве (самая верхняя строчка таблицы). Сначала добавляем в массив, а только потом добавляем строчку в таблицу чтоб была анимация
+                    let savedWords = savedData.last
+                    savedWords?.inputedWords = usedWords
+                    save()
                     
                     let indexPath = IndexPath(row: 0, section: 0)
                     tableView.insertRows(at: [indexPath], with: .automatic) //добавляем строчку на топ таблицы
@@ -135,6 +159,16 @@ class ViewController: UITableViewController {
         let ac = UIAlertController(title: errorTitle, message: errorMessage, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "Continue", style: .default))
         present(ac, animated: true)
+    }
+    
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let dataToSave = try? jsonEncoder.encode(savedData) {
+            let defaults = UserDefaults.standard
+            defaults.set(dataToSave, forKey: "savedData")
+        } else {
+            print("Failed to save")
+        }
     }
 
 

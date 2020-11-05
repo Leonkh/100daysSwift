@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B07D323E25546DAB00CF4665 /* SavedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D323D25546DAB00CF4665 /* SavedData.swift */; };
 		B0A66B1F254E14920037DABF /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = B0A66B1E254E14920037DABF /* start.txt */; };
 		B0FB1F8D254E091F00D0EAA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB1F8C254E091F00D0EAA6 /* AppDelegate.swift */; };
 		B0FB1F8F254E091F00D0EAA6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FB1F8E254E091F00D0EAA6 /* SceneDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B07D323D25546DAB00CF4665 /* SavedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedData.swift; sourceTree = "<group>"; };
 		B0A66B1E254E14920037DABF /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 		B0FB1F89254E091E00D0EAA6 /* Project5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project5.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0FB1F8C254E091F00D0EAA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				B0FB1F8C254E091F00D0EAA6 /* AppDelegate.swift */,
 				B0FB1F8E254E091F00D0EAA6 /* SceneDelegate.swift */,
 				B0FB1FA2254E097A00D0EAA6 /* TableViewController.swift */,
+				B07D323D25546DAB00CF4665 /* SavedData.swift */,
 				B0FB1F92254E091F00D0EAA6 /* Main.storyboard */,
 				B0FB1F95254E092300D0EAA6 /* Assets.xcassets */,
 				B0FB1F97254E092300D0EAA6 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				B0FB1F8D254E091F00D0EAA6 /* AppDelegate.swift in Sources */,
 				B0FB1FA3254E097A00D0EAA6 /* TableViewController.swift in Sources */,
 				B0FB1F8F254E091F00D0EAA6 /* SceneDelegate.swift in Sources */,
+				B07D323E25546DAB00CF4665 /* SavedData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

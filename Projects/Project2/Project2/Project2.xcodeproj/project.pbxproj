@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B07D323B2554633500CF4665 /* gamerScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07D323A2554633500CF4665 /* gamerScore.swift */; };
 		B0CCCE4A2549633000523797 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCCE492549633000523797 /* AppDelegate.swift */; };
 		B0CCCE4C2549633000523797 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCCE4B2549633000523797 /* SceneDelegate.swift */; };
 		B0CCCE4E2549633000523797 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CCCE4D2549633000523797 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B07D323A2554633500CF4665 /* gamerScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gamerScore.swift; sourceTree = "<group>"; };
 		B0CCCE462549632F00523797 /* Project2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0CCCE492549633000523797 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0CCCE4B2549633000523797 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				B0CCCE492549633000523797 /* AppDelegate.swift */,
 				B0CCCE4B2549633000523797 /* SceneDelegate.swift */,
 				B0CCCE4D2549633000523797 /* ViewController.swift */,
+				B07D323A2554633500CF4665 /* gamerScore.swift */,
 				B0CCCE4F2549633000523797 /* Main.storyboard */,
 				B0CCCE522549633300523797 /* Assets.xcassets */,
 				B0CCCE542549633300523797 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 				B0CCCE4E2549633000523797 /* ViewController.swift in Sources */,
 				B0CCCE4A2549633000523797 /* AppDelegate.swift in Sources */,
 				B0CCCE4C2549633000523797 /* SceneDelegate.swift in Sources */,
+				B07D323B2554633500CF4665 /* gamerScore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

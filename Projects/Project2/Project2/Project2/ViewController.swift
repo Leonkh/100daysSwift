@@ -17,12 +17,26 @@ class ViewController: UIViewController {
     @IBOutlet var scoreLabel: UILabel!
     var countries = [String]()
     
+    var players = [GamerScore]()
+    
     var score = 0
     var questionNumber = 0
     var correctAnswer = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let defaults = UserDefaults.standard // Challenge 2 from Project 12
+        if let savedData = defaults.object(forKey: "players") as? Data {
+            let jsonDecoder = JSONDecoder()
+            do {
+                players = try jsonDecoder.decode([GamerScore].self, from: savedData)
+            } catch {
+                print("Failed to load data")
+            }
+        }
+        let player = GamerScore(score: score)
+        players.append(player)
+        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(lookScoreTapped))
         
@@ -80,16 +94,20 @@ class ViewController: UIViewController {
         if sender.tag == correctAnswer {
             title = "Correct!"
             score += 1
+//            showNext(title: title)
+            if score > (players.last?.score)! {
+                newScore()
+                showNext(title: title)
+            }
+            showNext(title: title)
         } else {
             title = "Wrong! That’s the flag of \(countries[sender.tag].uppercased())"
+            
             score -= 1
+            showNext(title: title)
         }
         
-        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
-    
-        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
-        
-        present(ac, animated: true)
+//        showNext(title: title)
     }
     
     @objc func lookScoreTapped () {
@@ -101,5 +119,37 @@ class ViewController: UIViewController {
         present(sc, animated: true)
     }
     
+    func save() {
+        let jsonEncoder = JSONEncoder()
+        if let savedData = try? jsonEncoder.encode(players) {
+            let defaults = UserDefaults.standard
+            defaults.set(savedData, forKey: "players")
+        } else {
+            print("Failed to save")
+        }
+    }
+    
+    func newScore() {
+        let gamer = GamerScore(score: score)
+        players.removeAll()
+        players.append(gamer)
+        save()
+        let ac = UIAlertController(title: "It's new score!", message: "You beated the previous high score ", preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: {_ in self.showNext(title: "Correct!")}))
+        present(ac, animated: true)
+//        return
+        
+//        showNext(title: "Correct!")
+    }
+    
+    
+    func showNext(title: String){
+        
+        let ac = UIAlertController(title: title, message: "Your score is \(score)", preferredStyle: .alert)
+    
+        ac.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion))
+        
+        present(ac, animated: true)
+    }
 }
 
