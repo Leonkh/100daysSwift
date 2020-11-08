@@ -37,6 +37,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
     }
     
     @objc func importPicture() {
+        
+       
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
@@ -48,7 +50,21 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate,  UINavi
             return
         }
         dismiss(animated: true)
-        currentImage = image
+        
+        UIView.animate(withDuration: 1.5, delay: 0, options: [], animations: { // Challenge 2 from Project 15
+                self.imageView.alpha = 0
+            })
+//        if let lastImage = currentImage {
+            
+
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            currentImage = image
+//        }
+
+        
+        UIView.animate(withDuration: 1.5, delay: 0, options: [], animations: {
+            self.imageView.alpha = 1
+        })
         
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
