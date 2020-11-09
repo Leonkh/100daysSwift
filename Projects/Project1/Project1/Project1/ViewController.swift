@@ -44,6 +44,8 @@ class ViewController: UITableViewController {
             }
             self?.reloadData()
         }
+        
+ 
     }
     
     func reloadData() { // Challenge 1 из проекта 9
@@ -82,7 +84,7 @@ It was shown \(imageInfo[indexPath.row].timesWasShown) times
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Bad") as? DetailViewController {
             vc.selectedImage = pictures[indexPath.row]
             vc.selectedPictureNumber = indexPath.row
             vc.totalPictures = pictures.count
