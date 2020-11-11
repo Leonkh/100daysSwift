@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     @IBOutlet var button1: UIButton!
     @IBOutlet var button2: UIButton!
@@ -65,10 +65,18 @@ class ViewController: UIViewController {
         button1.layer.borderColor = UIColor.lightGray.cgColor
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
+        
+//        DispatchQueue.main.sync {
+            registerLocal() // Challenge 3 from Project 21
+//        }
+        
+//        scheduleLocal() // Challenge 3 from Project 21
+        
         askQuestion()
     }
 
     func askQuestion(action: UIAlertAction! = nil) {
+        scheduleLocal()
         if questionNumber == 10 {
             let af = UIAlertController(title: "End game!", message: "Your final score is \(score)", preferredStyle: .alert)
             af.addAction(UIAlertAction(title: "End", style: .default, handler: nil))
@@ -156,5 +164,48 @@ class ViewController: UIViewController {
         
         present(ac, animated: true)
     }
+    
+    func registerLocal() {
+        let center = UNUserNotificationCenter.current() // создаем объект. current значит к нынешней версии Notification Center, то есть на этот экран
+        
+        center.requestAuthorization(options: [.alert, .badge, .sound]) {
+            granted, error in
+            if granted {
+                print("Yay!")
+            } else {
+                print("D'oh!")
+            }
+        } // запрашиваем разрешение
+    }
+    
+    func scheduleLocal() {
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.removeAllPendingNotificationRequests()
+        
+        let content = UNMutableNotificationContent()
+        content.title = "It's time to play!"
+        content.body = "Open app and make new records!"
+//        content.categoryIdentifier = "default"
+        content.sound = .default
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        center.add(request)
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        scheduleLocal() // Challenge 3 from Project 21
+//        print(response.actionIdentifier)
+//        print("YES!")
+//        let ac = UIAlertController(title: "You open it!", message: nil, preferredStyle: .alert)
+//        ac.addAction(UIAlertAction(title: "OK", style: .default))
+//        present(ac, animated: true) //
+        completionHandler()
+    }
+    
 }
-
