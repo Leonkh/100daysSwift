@@ -51,7 +51,7 @@ class DetailViewController: UIViewController {
             
             let attrs: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: 36),
-                .paragraphStyle: paragraphStyle
+                .paragraphStyle: paragraphStyle,
                     ]
             let text = "From Storm Viewer"
             let attributedString = NSAttributedString(string: text, attributes: attrs)
