@@ -159,6 +159,5 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let vc = UIActivityViewController(activityItems: [image], applicationActivities: [])
         present(vc, animated: true)
     }
-
 }
 
