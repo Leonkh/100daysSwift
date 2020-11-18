@@ -25,12 +25,46 @@ class DetailViewController: UIViewController {
         title = "Picture \(selectedPictureNumber + 1) of \(totalPictures)"
         navigationItem.largeTitleDisplayMode = .never
 
-        if let imageToLoad = selectedImage {
-//            imageView.image = "Picture of \(pictures.count)"
-            imageView.image = UIImage(named: imageToLoad)
-        }
+//        if let imageToLoad = selectedImage {
+////            imageView.image = "Picture of \(pictures.count)"
+//            imageView.image = UIImage(named: imageToLoad)
+//        }
+        drawImage()
+        
+        
     }
-    
+    func drawImage() { // challenge 3 from project27
+        guard let selectedImage = selectedImage else {return}
+        print("Картинка найдена")
+        let img1 = UIImage(named: selectedImage)
+        let size = img1!.size
+        let renderer = UIGraphicsImageRenderer(size: size)
+        
+        let img = renderer.image { ctx in
+            let picture = img1
+            let width = size.width
+            let height = size.height
+            picture?.draw(at: CGPoint(x: 0, y: 0))
+            
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.alignment = .center
+            
+            let attrs: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 36),
+                .paragraphStyle: paragraphStyle
+                    ]
+            let text = "From Storm Viewer"
+            let attributedString = NSAttributedString(string: text, attributes: attrs)
+
+            attributedString.draw(with: CGRect(x: 0, y: 50, width: width, height: 36), options: .usesLineFragmentOrigin, context: nil) //  рисуем в конкретной области
+            
+            
+            
+             
+        }
+        imageView.image = img
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.hidesBarsOnTap = true
