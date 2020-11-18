@@ -4,7 +4,7 @@
 //
 //  Created by Леонид Хабибуллин on 04.11.2020.
 //
-
+import LocalAuthentication
 import UIKit
 
 class ViewController: UICollectionViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate { // That tells Swift you promise your class supports all the functionality required by the two protocols UIImagePickerControllerDelegate and UINavigationControllerDelegate. The first of those protocols is useful, telling us when the user either selected a picture or cancelled the picker. The second, UINavigationControllerDelegate, really is quite pointless here, so don't worry about it beyond just modifying your class declaration to include the protocol.
@@ -16,7 +16,45 @@ class ViewController: UICollectionViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let notificationCenter = NotificationCenter.default // Challenge 3 from project 28
+        notificationCenter.addObserver(self, selector: #selector(hideAll), name: UIApplication.willResignActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(openAll), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewPerson))
+        
+    }
+    @objc func hideAll() { // Challenge 3 from project 28
+        guard view.isHidden == false else {return}
+        view.isHidden = true
+        title = "You must pass authentication"
+    }
+    
+    @objc func openAll() { // Challenge 3 from project 28
+        guard view.isHidden == true else {return}
+        let contex = LAContext() // объект LA. Error в LA это часть Obj-C, а не Swift
+        var error: NSError?
+        
+        if contex.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            let reason = "Identify yourself!"
+            
+            contex.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) {[weak self] success, authencticationError in
+                DispatchQueue.main.async {
+                    if success {
+                        self?.view.isHidden = false
+                        self?.title = ""
+                    } else { 
+                        let ac = UIAlertController(title: "Authentication failed", message: "You cann't be verified. Please, try again", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        self?.present(ac, animated: true)
+                    }
+                }
+            }
+            
+        } else {
+            let ac = UIAlertController(title: "Biometry unavailable", message: "Your device is not configured for biometric authentication.", preferredStyle: .alert)
+                        ac.addAction(UIAlertAction(title: "OK", style: .default))
+                        present(ac, animated: true)
+        }
         
     }
     
