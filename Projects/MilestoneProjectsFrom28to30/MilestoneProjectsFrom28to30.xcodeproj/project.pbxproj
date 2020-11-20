@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0C511A8256722D10044E5E4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C511A7256722D10044E5E4 /* CollectionViewController.swift */; };
+		B0C511AB2567275D0044E5E4 /* CardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C511AA2567275D0044E5E4 /* CardCell.swift */; };
 		B0C7A9D12566A7DB00F98DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7A9D02566A7DB00F98DB5 /* AppDelegate.swift */; };
 		B0C7A9D32566A7DB00F98DB5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7A9D22566A7DB00F98DB5 /* SceneDelegate.swift */; };
 		B0C7A9D52566A7DB00F98DB5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C7A9D42566A7DB00F98DB5 /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0C511A7256722D10044E5E4 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		B0C511AA2567275D0044E5E4 /* CardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCell.swift; sourceTree = "<group>"; };
 		B0C7A9CD2566A7DB00F98DB5 /* MilestoneProjectsFrom28to30.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MilestoneProjectsFrom28to30.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C7A9D02566A7DB00F98DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0C7A9D22566A7DB00F98DB5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 				B0C7A9D22566A7DB00F98DB5 /* SceneDelegate.swift */,
 				B0C7A9D42566A7DB00F98DB5 /* ViewController.swift */,
 				B0C7A9D62566A7DB00F98DB5 /* Main.storyboard */,
+				B0C511AA2567275D0044E5E4 /* CardCell.swift */,
+				B0C511A7256722D10044E5E4 /* CollectionViewController.swift */,
 				B0C7A9D92566A7E100F98DB5 /* Assets.xcassets */,
 				B0C7A9DB2566A7E100F98DB5 /* LaunchScreen.storyboard */,
 				B0C7A9DE2566A7E100F98DB5 /* Info.plist */,
@@ -137,6 +143,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0C511AB2567275D0044E5E4 /* CardCell.swift in Sources */,
+				B0C511A8256722D10044E5E4 /* CollectionViewController.swift in Sources */,
 				B0C7A9D52566A7DB00F98DB5 /* ViewController.swift in Sources */,
 				B0C7A9D12566A7DB00F98DB5 /* AppDelegate.swift in Sources */,
 				B0C7A9D32566A7DB00F98DB5 /* SceneDelegate.swift in Sources */,
